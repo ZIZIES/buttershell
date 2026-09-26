@@ -1,0 +1,22 @@
+[
+  { "name": "List files", "command": "ls -lah", "detail": "Show files, including hidden ones", "tags": ["files", "folder", "directory"] },
+  { "name": "Go to a folder", "command": "cd ", "detail": "Change the current directory", "tags": ["folder", "directory", "path"] },
+  { "name": "Show current folder", "command": "pwd", "detail": "Print the current working directory", "tags": ["folder", "path"] },
+  { "name": "Find files by name", "command": "find . -iname '*name*'", "detail": "Search below the current folder", "tags": ["files", "search"] },
+  { "name": "Search text in files", "command": "grep -Rni 'text' .", "detail": "Find matching text recursively", "tags": ["files", "search", "text"] },
+  { "name": "Create a folder", "command": "mkdir ", "detail": "Make a new directory", "tags": ["files", "folder"] },
+  { "name": "Create an empty file", "command": "touch ", "detail": "Make a new empty file", "tags": ["files"] },
+  { "name": "Copy a file", "command": "cp ", "detail": "Copy a file or folder", "tags": ["files"] },
+  { "name": "Move or rename a file", "command": "mv ", "detail": "Move or rename a file or folder", "tags": ["files"] },
+  { "name": "Remove a file", "command": "rm ", "detail": "Remove a file", "tags": ["files", "delete"] },
+  { "name": "Show a file", "command": "cat ", "detail": "Print a file's contents", "tags": ["files", "text"] },
+  { "name": "Read a file comfortably", "command": "less ", "detail": "Scroll through a file", "tags": ["files", "text"] },
+  { "name": "Git status", "command": "git status --short --branch", "detail": "See changed files and the current branch", "tags": ["git", "repo"] },
+  { "name": "Git diff", "command": "git diff", "detail": "Review unstaged changes", "tags": ["git", "repo", "review"] },
+  { "name": "Recent commits", "command": "git log --oneline -10", "detail": "Show the last ten commits", "tags": ["git", "repo", "history"] },
+  { "name": "Start a local web server", "command": "python3 -m http.server 8000", "detail": "Serve this folder on port 8000", "tags": ["python", "web", "server"] },
+  { "name": "Check disk space", "command": "df -h", "detail": "Show free space on mounted disks", "tags": ["system", "disk"] },
+  { "name": "See running processes", "command": "ps aux", "detail": "List running processes", "tags": ["system", "process"] },
+  { "name": "Open this folder in Finder", "command": "open .", "detail": "Open the current folder in Finder", "tags": ["mac", "finder", "folder"] },
+  { "name": "Clear the screen", "command": "clear", "detail": "Clear the visible terminal", "tags": ["terminal", "screen"] }
+]
