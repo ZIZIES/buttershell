@@ -49,6 +49,10 @@ final class WorkspaceModel: ObservableObject {
         persist()
     }
 
+    func ensureTabExists() {
+        if tabs.isEmpty { addTab() }
+    }
+
     func closeActiveTab() {
         guard let activeTabID else { return }
         closeTab(activeTabID)

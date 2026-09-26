@@ -32,6 +32,7 @@ struct MainWindow: View {
         }
         .animation(.easeOut(duration: 0.14), value: model.isCommandPalettePresented)
         .onAppear {
+            model.ensureTabExists()
             model.onLastTabClosed = { dismiss() }
         }
     }
