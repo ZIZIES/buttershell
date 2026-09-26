@@ -39,6 +39,7 @@ struct TerminalPane: View {
             .background(.ultraThinMaterial)
 
             TerminalHost(session: session, theme: theme)
+                .id(session.id)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color(nsColor: theme.background))
                 .overlay {

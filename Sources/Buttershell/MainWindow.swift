@@ -41,30 +41,32 @@ struct MainWindow: View {
         HStack(spacing: 9) {
             HStack(spacing: 5) {
                 ForEach(model.tabs) { tab in
-                    HStack(spacing: 7) {
+                    HStack(spacing: 0) {
                         Button {
                             model.activeTabID = tab.id
                             model.activePaneID = tab.layout.paneIDs.first
                         } label: {
                             Text(tab.title)
                                 .lineLimit(1)
-                                .frame(maxWidth: 112)
                                 .font(.system(size: 12, weight: model.activeTabID == tab.id ? .semibold : .regular))
+                                .frame(maxWidth: 112, alignment: .leading)
+                                .padding(.leading, 11)
+                                .padding(.trailing, 7)
+                                .frame(height: 30)
+                                .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
 
                         Button {
                             model.closeTab(tab.id)
                         } label: {
-                            Image(systemName: "xmark")
-                                .font(.system(size: 8, weight: .bold))
-                                .frame(width: 14, height: 14)
+                                Image(systemName: "xmark")
+                                    .font(.system(size: 8, weight: .bold))
+                                    .frame(width: 24, height: 30)
                         }
                         .buttonStyle(.plain)
                         .opacity(model.tabs.count > 1 ? 0.65 : 0)
                     }
-                    .padding(.leading, 11)
-                    .padding(.trailing, 7)
                     .frame(height: 30)
                     .background {
                         Capsule()

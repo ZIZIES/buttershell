@@ -81,17 +81,22 @@ enum ShellIntegration {
           local candidate
           for candidate in "${_BUTTERSHELL_STARTERS[@]}"; do
             if [[ "$candidate" == "$BUFFER"* && "$candidate" != "$BUFFER" ]]; then
-              POSTDISPLAY="${candidate#$BUFFER}"
+              _buttershell_show_suggestion "$candidate"
               return
             fi
           done
           [[ "$BUFFER" != *' '* ]] || return
           for candidate in ${(k)commands}; do
             if [[ "$candidate" == "$BUFFER"* && "$candidate" != "$BUFFER" ]]; then
-              POSTDISPLAY="${candidate#$BUFFER}"
+              _buttershell_show_suggestion "$candidate"
               return
             fi
           done
+        }
+
+        _buttershell_show_suggestion() {
+          POSTDISPLAY="${1#$BUFFER}"
+          region_highlight+=("${#BUFFER} $((${#BUFFER} + ${#POSTDISPLAY})) fg=240")
         }
 
         _buttershell_accept_suggestion() {

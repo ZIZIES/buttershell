@@ -1,17 +1,25 @@
+import AppKit
 import SwiftUI
 
 @main
 struct ButtershellApp: App {
+    @NSApplicationDelegateAdaptor(AppLifecycleDelegate.self) private var appLifecycleDelegate
     @StateObject private var model = WorkspaceModel()
 
     var body: some Scene {
         WindowGroup {
             MainWindow(model: model)
         }
-        .windowStyle(.hiddenTitleBar)
+        .windowStyle(.titleBar)
         .commands {
             ButtershellCommands(model: model)
         }
+    }
+}
+
+private final class AppLifecycleDelegate: NSObject, NSApplicationDelegate {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        true
     }
 }
 
