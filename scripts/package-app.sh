@@ -12,6 +12,7 @@ mkdir -p "$APP_DIR/Contents/MacOS" "$APP_DIR/Contents/Resources"
 cp "$BIN_DIR/buttershell" "$APP_DIR/Contents/MacOS/buttershell"
 ditto "$BIN_DIR/Buttershell_Buttershell.bundle" \
     "$APP_DIR/Contents/Resources/Buttershell_Buttershell.bundle"
+cp "$ROOT_DIR/Resources/AppIcon.icns" "$APP_DIR/Contents/Resources/AppIcon.icns"
 cp "$ROOT_DIR/AppInfo.plist" "$APP_DIR/Contents/Info.plist"
 codesign --force --deep --sign - "$APP_DIR" >/dev/null
 
